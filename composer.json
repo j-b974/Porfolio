@@ -1,0 +1,16 @@
+{
+    "name": "berti/porfolio",
+    "description": "\"c'est un portfolio\"",
+    "autoload": {
+        "psr-4": {
+            "Berti\\Porfolio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jb974",
+            "email": "bertil974@hotmail.fr"
+        }
+    ],
+    "require": {}
+}
