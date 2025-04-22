@@ -33,6 +33,10 @@
         <main>
             <article>
                 <h2>mes projet</h2>
+                <div class="box-card">
+
+                    <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardProjet.php' ?>
+                </div>
             </article>
             <article>
                 <h2> mes force skill</h2>
