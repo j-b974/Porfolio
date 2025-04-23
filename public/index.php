@@ -1,3 +1,10 @@
+<?php
+    require_once dirname(__DIR__, 2).'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+
+    $db = \Berti\Porfolio\Model\DBPortefolio::connection();
+
+?>
+
 <!DOCTYPE html>
 <html lang="FR-fr">
 <head>
