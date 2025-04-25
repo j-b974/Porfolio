@@ -1,18 +1,27 @@
 CREATE TABLE IF NOT EXISTS cardProjet(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    titre varchar(255) not null,
+    titre varchar(50) not null,
     description varchar(255) not null,
-    lien_git varchar(255) not null default 'aucun',
-    lien_web varchar(255) not null default 'aucun'
+    lien_git varchar(50) default NULL,
+    lien_web varchar(50) default NULL
 );
 CREATE TABLE IF NOT EXISTS techno(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nom varchar(255) not null,
-    image varchar(255) not null,
-    id_projet INTEGER ,
+    nom varchar(50) not null,
+    image varchar(50) not null
+);
+CREATE TABLE IF NOT EXISTS cardProjet_techno(
+    id_cardProjet INTEGER  ,
+    id_techno INTEGER ,
+    PRIMARY KEY (id_cardProjet, id_techno),
     CONSTRAINT  fk_projet
-        FOREIGN KEY (id_projet)
-            REFERENCES cardProjet (id)
+        FOREIGN KEY (id_cardProjet)
+        REFERENCES cardProjet (id)
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+    CONSTRAINT  fk_techno
+        FOREIGN KEY (id_techno)
+        REFERENCES techno (id)
             ON DELETE CASCADE
             ON UPDATE RESTRICT
-);
+)

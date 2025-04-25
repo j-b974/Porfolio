@@ -3,3 +3,4 @@
 /vendor/
 .env
 Portfolio.db
+/Migrations/data.json
