@@ -48,5 +48,14 @@ class Techno
         $req->execute(['idTechno' => $idTechno, 'idProjet' => $idProjet]);
 
     }
+    public function getTechno(int $idProjet):array
+    {
+        $sql = "SELECT techno.nom, techno.image FROM cardProjet_techno 
+                INNER JOIN techno ON cardProjet_techno.id_techno = techno.id
+                WHERE cardProjet_techno.id_cardProjet = :idProjet";
+        $req = $this->pdo->prepare($sql);
+        $req->execute(['idProjet' => $idProjet]);
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }

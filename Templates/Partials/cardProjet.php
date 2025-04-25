@@ -4,14 +4,14 @@
     </div>
     <div class="cardBody">
         <div>
-            <h3>gateaux</h3>
-            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam autem commodi excepturi fugiat maiores obcaecati possimus quas, ratione voluptatum! Assumenda consectetur deserunt dolores eos, harum qui quo saepe tenetur?</span><span>Ducimus eveniet illo in ipsa laborum magnam porro quam reprehenderit rerum tempora? Animi, blanditiis consequuntur dignissimos doloremque dolores eum explicabo fugit nesciunt, obcaecati possimus quae, quod sapiente soluta vel veritatis.</span></p>
+            <h3><?= $card['titre'] ?></h3>
+            <p><?= $card['description']?></p>
         </div>
         <h5 class="sous-titre"> Stack technique </h5>
         <ul class="box-techno">
-            <li><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></li>
-            <li><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></li>
-            <li><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></li>
+            <?php foreach ($card['techno'] as $techno) : ?>
+                <li><?= $techno['nom'] ?><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></li>
+            <?php endforeach; ?>
         </ul>
         <h5 class="sous-titre" > Voir le projet </h5>
         <div class="box-link">

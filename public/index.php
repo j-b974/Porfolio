@@ -1,7 +1,10 @@
 <?php
-    require_once dirname(__DIR__, 2).'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+    require_once dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
     $db = \Berti\Porfolio\Model\DBPortefolio::connection();
+    $TcardP = new \Berti\Porfolio\Model\Repository\CardPortfolio($db);
+    $dataCard = $TcardP->getAllCard();
+
 
 ?>
 
@@ -41,8 +44,9 @@
             <article>
                 <h2>mes projet</h2>
                 <div class="box-card">
-
-                    <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardProjet.php' ?>
+                    <?php foreach ($dataCard as $card) : ?>
+                        <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardProjet.php' ?>
+                    <?php endforeach; ?>
                 </div>
             </article>
             <article>
