@@ -25,7 +25,7 @@
     <div class="contenair">
         <header>
             <div class="box-btn">
-                <button class="btn">Contactez-mon</button>
+                <button class="btn">Contactez-moi</button>
             </div>
             <div class="box-banier">
                 <div class="hearder-banier">
