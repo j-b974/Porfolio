@@ -11,18 +11,17 @@
         <ul class="box-techno">
             <?php foreach ($card['techno'] as $techno) : ?>
                 <li>
-                    <?= $techno['nom'] ?>
-                    <img src="./asset/images/bg_portfolio.jpg" alt="logo site web">
+                    <img src="./asset/images/technologie/<?= $techno['image'] ?>" alt="<?= $techno['nom'] ?>">
                 </li>
             <?php endforeach; ?>
         </ul>
         <h5 class="sous-titre"> Voir le projet </h5>
         <div class="box-link">
             <div class="link">
-                <a href="#" class="card-link"><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></a>
+                <a href="<?= $card['lien_web']?>" class="card-link" target="_blank"><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></a>
             </div>
             <div class="link">
-                <a href="#" class="card-link"><img src="./asset/images/bg_portfolio.jpg" alt="logo github"></a>
+                <a href="<?= $card['lien_git']?>" class="card-link" target="_blank"><img src="./asset/images/bg_portfolio.jpg" alt="logo github"></a>
             </div>
         </div>
     </div>

@@ -1,5 +1,16 @@
-html,body {
+/* Variables et reset */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #fff;
     --font-size: 16px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+html,body {
     font-size: var(--font-size);
     font-family: Inter,sans-serif;
     word-break: break-word;
@@ -169,6 +180,81 @@ header > svg {
     z-index: 1;
 }
 
+/* Carte des savoir-être */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-color);
+}
+
+.skill-card:nth-child(2n)::before {
+    background: var(--accent-color);
+}
+
+.skill-card:nth-child(3n)::before {
+    background: #27ae60;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.skill-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.skill-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+.examples {
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+}
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-card {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
 /* Responsive ajustements */
 @media screen and (max-width: 768px) {
     .cardProjet {
@@ -189,6 +275,10 @@ header > svg {
         flex-direction: row; /* Permet une disposition proche sur petits écrans */
         justify-content: center;
     }
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -283,6 +373,114 @@ header > svg {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+/* Style du bouton */
+.btn-modal {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-modal:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour la modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.4s;
+}
+
+/* Animation pour la modale */
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0}
+    to {transform: translateY(0); opacity: 1}
+}
+
+/* Bouton de fermeture */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}
+
+/* Styles du formulaire */
+.form-title {
+    margin-top: 0;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
 }
 
 @media screen and (min-width :600px){

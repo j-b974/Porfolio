@@ -5,7 +5,6 @@
     $TcardP = new \Berti\Porfolio\Model\Repository\CardPortfolio($db);
     $dataCard = $TcardP->getAllCard();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +24,7 @@
     <div class="contenair">
         <header>
             <div class="box-btn">
-                <button class="btn">Contactez-moi</button>
+                <button class="btn" id="openModal" >Contactez-moi</button>
             </div>
             <div class="box-banier">
                 <div class="hearder-banier">
@@ -50,11 +49,67 @@
                 </div>
             </article>
             <article>
-                <h2> mes force skill</h2>
+                <h2> mes Soft skills</h2>
+            </article>
+            <article>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <div class="skill-icon">🤝</div>
+                        <h3 class="skill-title">Communication</h3>
+                        <p class="skill-description">Capacité à exprimer clairement des concepts techniques aux non-initiés et à discuter efficacement avec l'équipe pour résoudre des problèmes complexes.</p>
+                        <p class="examples">Exemple: Documentation détaillée des projets, feedback constructif lors des code reviews, présentation claire des solutions.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🧠</div>
+                        <h3 class="skill-title">Esprit d'analyse</h3>
+                        <p class="skill-description">Aptitude à décomposer des problèmes complexes en éléments simples et à trouver des solutions efficaces et élégantes.</p>
+                        <p class="examples">Exemple: Optimisation de processus inefficaces, restructuration de code legacy, identification des goulots d'étranglement.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">📚</div>
+                        <h3 class="skill-title">Apprentissage continu</h3>
+                        <p class="skill-description">Volonté constante d'acquérir de nouvelles compétences et de se tenir informé des dernières tendances et technologies du web.</p>
+                        <p class="examples">Exemple: Veille technologique régulière, participation à des hackathons, contribution à des projets open source.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">⏱️</div>
+                        <h3 class="skill-title">Gestion du temps</h3>
+                        <p class="skill-description">Capacité à prioriser les tâches, respecter les délais et équilibrer efficacement plusieurs projets simultanément.</p>
+                        <p class="examples">Exemple: Utilisation de méthodes agiles, planification réaliste des sprints, transparence sur l'avancement des projets.</p>
+                    </div>
             </article>
         </main>
         <footer>
             <h3> contact </h3>
         </footer>
+    </div>
+    <!-- La fenêtre modale -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="form-title">Formulaire de contact</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
     </div>
 </body>
