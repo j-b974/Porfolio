@@ -31,12 +31,28 @@ form.addEventListener("submit", function(event) {
     const subject = document.getElementById("subject").value;
     const message = document.getElementById("message").value;
 
-    // Ici, vous pourriez envoyer les données à un serveur
-    console.log("Formulaire soumis avec succès !");
-    console.log({name, email, subject, message});
+    // Préparer les données pour l'envoi
+    const formData = JSON.stringify({name, email, subject, message});
 
-    // Afficher un message de confirmation
-    alert("Votre message a été envoyé avec succès !");
+    // Créer une requête XHR
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader( "X-Requested-With", "XMLHttpRequest");
+    xhr.setRequestHeader("Authorization", "Bearer exampleToken123"); // Exemple de clé pour identification
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                let reponse = JSON.parse(xhr.responseText);
+                console.log(reponse);
+            } else {
+                alert("Une erreur est survenue lors de l'envoi du message.");
+            }
+        }
+    };
+
+    // Envoyer la requête avec les données du formulaire
+    xhr.send(formData);
 
     // Réinitialiser le formulaire et fermer la modale
     form.reset();

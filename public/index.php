@@ -1,7 +1,23 @@
 <?php
     require_once dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
-    $db = \Berti\Porfolio\Model\DBPortefolio::connection();
+    $headers = getallheaders();
+    if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XMLHttpRequest') {
+
+        // Récupérer les données JSON brutes
+        $postData = json_decode(file_get_contents('php://input'), true);
+
+
+        $reponse = ['reponse'=> " {$postData['name']} : email evoyez !!!" ];
+
+        header('Content-Type: application/json');
+        echo json_encode($reponse);
+        exit();
+
+    }
+
+
+$db = \Berti\Porfolio\Model\DBPortefolio::connection();
     $TcardP = new \Berti\Porfolio\Model\Repository\CardPortfolio($db);
     $dataCard = $TcardP->getAllCard();
 
