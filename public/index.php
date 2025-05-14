@@ -7,7 +7,16 @@
         // Récupérer les données JSON brutes
         $postData = json_decode(file_get_contents('php://input'), true);
 
+        if(!empty($postData)){
+            $email = htmlspecialchars($postData['email']);
+            $name = htmlspecialchars($postData['name']);
+            $subject = htmlspecialchars($postData['subject']);
+            $message = htmlspecialchars($postData['message']);
 
+            $mailler = new \Berti\Porfolio\Controller\SenderMail($email , $subject , $message);
+
+
+        }
         $reponse = ['reponse'=> " {$postData['name']} : email evoyez !!!" ];
 
         header('Content-Type: application/json');

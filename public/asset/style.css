@@ -10,6 +10,7 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
+
 html,body {
     font-size: var(--font-size);
     font-family: Inter,sans-serif;
@@ -59,10 +60,10 @@ header{
     font-size: 1rem; /* Taille de texte */
     font-weight: bold; /* Texte en gras */
     color: #ffffff; /* Couleur du texte */
-    background-color: #0099ff; /* Couleur de fond principale */
+    background: linear-gradient(180deg, #3949BE 0%, #0013A7 100%);
     border: none; /* Suppression de la bordure */
-    border-radius: 25px; /* Bord arrondi pour un style moderne */
-    cursor: pointer; /* Curseur pointeur au survol */
+    border-radius: 20px;
+    cursor: pointer;
     transition: all 0.3s ease; /* Transition pour les effets */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
     text-decoration: none; /* Supprime le soulignement si utilisé dans un lien */
@@ -70,7 +71,7 @@ header{
 }
 /* Effets interactifs (hover et focus) */
 .btn:hover {
-    background-color: #007acc; /* Couleur de fond plus foncée */
+    background: linear-gradient(180deg, #2939AA 0%, #00108B 100%);
     transform: translateY(-3px); /* Légère élévation */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
 }
