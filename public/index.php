@@ -74,7 +74,7 @@ $db = \Berti\Porfolio\Model\DBPortefolio::connection();
                 </div>
             </article>
             <article>
-                <h2> mes Soft skills</h2>
+                <h2> Soft skills</h2>
             </article>
             <article>
                 <div class="skills-container">
@@ -105,6 +105,79 @@ $db = \Berti\Porfolio\Model\DBPortefolio::connection();
                         <p class="skill-description">Capacité à prioriser les tâches, respecter les délais et équilibrer efficacement plusieurs projets simultanément.</p>
                         <p class="examples">Exemple: Utilisation de méthodes agiles, planification réaliste des sprints, transparence sur l'avancement des projets.</p>
                     </div>
+            </article>
+            <article>
+                <h2> Hard Skills </h2>
+                <div class="practices-container">
+                    <div class="practice-card">
+                        <h3>Clean Code</h3>
+                        <p>Écriture de code lisible et maintenable en suivant les principes SOLID et les bonnes
+                            pratiques de nommage.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Version Control</h3>
+                        <p>Utilisation systématique de Git avec des commits atomiques et des messages descriptifs.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Tests Unitaires</h3>
+                        <p>Développement piloté par les tests (TDD) pour garantir la qualité et la fiabilité du
+                            code.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Code Review</h3>
+                        <p>Participation active aux revues de code pour améliorer la qualité et partager les
+                            connaissances.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Documentation</h3>
+                        <p>Rédaction de documentation claire et à jour pour faciliter la maintenance et
+                            l'intégration.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Veille Technologique</h3>
+                        <p>Suivi régulier des nouvelles technologies et des meilleures pratiques du développement
+                            web.</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2> Transversal skills</h2>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <div class="skill-icon">🌍</div>
+                        <h3 class="skill-title">Multilinguisme</h3>
+                        <p class="skill-description">Capacité à communiquer en plusieurs langues et à travailler dans un
+                            environnement international.</p>
+                        <p class="examples">Exemple: Documentation multilingue, collaboration avec des équipes
+                            internationales.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🎯</div>
+                        <h3 class="skill-title">Gestion de projet</h3>
+                        <p class="skill-description">Compréhension des méthodologies de gestion de projet et capacité à
+                            les appliquer efficacement.</p>
+                        <p class="examples">Exemple: Planification des sprints, estimation des tâches, suivi des
+                            deadlines.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">🤝</div>
+                        <h3 class="skill-title">Travail d'équipe</h3>
+                        <p class="skill-description">Capacité à collaborer efficacement au sein d'une équipe
+                            pluridisciplinaire.</p>
+                        <p class="examples">Exemple: Participation aux daily meetings, pair programming, partage de
+                            connaissances.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon">💡</div>
+                        <h3 class="skill-title">Résolution de problèmes</h3>
+                        <p class="skill-description">Approche méthodique pour identifier et résoudre les problèmes
+                            techniques complexes.</p>
+                        <p class="examples">Exemple: Debugging avancé, optimisation des performances, refactoring.</p>
+                    </div>
+                </div>
             </article>
         </main>
         <footer>
