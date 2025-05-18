@@ -1,6 +1,7 @@
 <?php
 
 namespace Berti\Porfolio\Model\Repository;
+use Berti\Porfolio\Controller\Entity\CardProjet;
 USE \PDO;
 
 class CardPortfolio
@@ -44,18 +45,18 @@ class CardPortfolio
     public function getAllCard(): array
     {
         // Récupère toutes les cartes avec les technos liées regroupées par carte
-        $sql = "SELECT * FROM cardProjet";
+        $sql = "SELECT id , titre , description , lien_git as lienGit , lien_web as lienWeb FROM cardProjet";
         $req = $this->pdo->query($sql);
-        $lstCard = $req->fetchAll(PDO::FETCH_ASSOC);
-
+        $req->setFetchMode(PDO::FETCH_CLASS , CardProjet::class);
+        $lstCard = $req->fetchAll();
         return $this->addTechnologiesToCards($lstCard);
     }
 
     private function addTechnologiesToCards(array $cards): array
     {
         return array_map(function ($card) {
-            $techno = $this->Ttechno->getTechno($card['id']);
-            $card['techno'] = $techno;
+            $techno = $this->Ttechno->getTechno($card->getId());;
+            $card->setTechno($techno);
             return $card;
         }, $cards);
     }

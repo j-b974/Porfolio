@@ -22,11 +22,9 @@
         header('Content-Type: application/json');
         echo json_encode($reponse);
         exit();
-
     }
 
-
-$db = \Berti\Porfolio\Model\DBPortefolio::connection();
+    $db = \Berti\Porfolio\Model\DBPortefolio::connection();
     $TcardP = new \Berti\Porfolio\Model\Repository\CardPortfolio($db);
     $dataCard = $TcardP->getAllCard();
 

@@ -50,12 +50,13 @@ class Techno
     }
     public function getTechno(int $idProjet):array
     {
-        $sql = "SELECT techno.nom, techno.image FROM cardProjet_techno 
+        $sql = "SELECT techno.id , techno.nom, techno.image FROM cardProjet_techno 
                 INNER JOIN techno ON cardProjet_techno.id_techno = techno.id
                 WHERE cardProjet_techno.id_cardProjet = :idProjet";
         $req = $this->pdo->prepare($sql);
         $req->execute(['idProjet' => $idProjet]);
-        return $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->setFetchMode(PDO::FETCH_CLASS, \Berti\Porfolio\Controller\Entity\Techno::class);
+        return $req->fetchAll();
     }
 
 }
