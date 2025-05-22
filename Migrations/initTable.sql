@@ -24,4 +24,12 @@ CREATE TABLE IF NOT EXISTS cardProjet_techno(
         REFERENCES techno (id)
             ON DELETE CASCADE
             ON UPDATE RESTRICT
+);
+CREATE TABLE IF NOT EXISTS skills(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nom varchar(50) not null,
+    icon varchar(50) ,
+    description varchar(255) not null,
+    exemple varchar(255) ,
+    skill varchar(50) not null
 )

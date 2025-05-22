@@ -27,6 +27,8 @@
     $db = \Berti\Porfolio\Model\DBPortefolio::connection();
     $TcardP = new \Berti\Porfolio\Model\Repository\CardPortfolio($db);
     $dataCard = $TcardP->getAllCard();
+    $TSkills = new \Berti\Porfolio\Model\Repository\Skills($db);
+    $dataSkills = $TSkills->getSkills();
 
 ?>
 
@@ -72,109 +74,35 @@
                 </div>
             </article>
             <article>
-                <h2> Soft skills</h2>
-            </article>
-            <article>
+                <h2>Soft skills</h2>
                 <div class="skills-container">
-                    <div class="skill-card">
-                        <div class="skill-icon">🤝</div>
-                        <h3 class="skill-title">Communication</h3>
-                        <p class="skill-description">Capacité à exprimer clairement des concepts techniques aux non-initiés et à discuter efficacement avec l'équipe pour résoudre des problèmes complexes.</p>
-                        <p class="examples">Exemple: Documentation détaillée des projets, feedback constructif lors des code reviews, présentation claire des solutions.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">🧠</div>
-                        <h3 class="skill-title">Esprit d'analyse</h3>
-                        <p class="skill-description">Aptitude à décomposer des problèmes complexes en éléments simples et à trouver des solutions efficaces et élégantes.</p>
-                        <p class="examples">Exemple: Optimisation de processus inefficaces, restructuration de code legacy, identification des goulots d'étranglement.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">📚</div>
-                        <h3 class="skill-title">Apprentissage continu</h3>
-                        <p class="skill-description">Volonté constante d'acquérir de nouvelles compétences et de se tenir informé des dernières tendances et technologies du web.</p>
-                        <p class="examples">Exemple: Veille technologique régulière, participation à des hackathons, contribution à des projets open source.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">⏱️</div>
-                        <h3 class="skill-title">Gestion du temps</h3>
-                        <p class="skill-description">Capacité à prioriser les tâches, respecter les délais et équilibrer efficacement plusieurs projets simultanément.</p>
-                        <p class="examples">Exemple: Utilisation de méthodes agiles, planification réaliste des sprints, transparence sur l'avancement des projets.</p>
-                    </div>
+                    <?php foreach ($dataSkills as $skill) : ?>
+                        <?php if($skill->getSkill() === 'Soft'): ?>
+                            <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardSkill.php' ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
             </article>
             <article>
-                <h2> Hard Skills </h2>
+                <h2>Hard Skills</h2>
                 <div class="practices-container">
-                    <div class="practice-card">
-                        <h3>Clean Code</h3>
-                        <p>Écriture de code lisible et maintenable en suivant les principes SOLID et les bonnes
-                            pratiques de nommage.</p>
-                    </div>
-                    <div class="practice-card">
-                        <h3>Version Control</h3>
-                        <p>Utilisation systématique de Git avec des commits atomiques et des messages descriptifs.</p>
-                    </div>
-                    <div class="practice-card">
-                        <h3>Tests Unitaires</h3>
-                        <p>Développement piloté par les tests (TDD) pour garantir la qualité et la fiabilité du
-                            code.</p>
-                    </div>
-                    <div class="practice-card">
-                        <h3>Code Review</h3>
-                        <p>Participation active aux revues de code pour améliorer la qualité et partager les
-                            connaissances.</p>
-                    </div>
-                    <div class="practice-card">
-                        <h3>Documentation</h3>
-                        <p>Rédaction de documentation claire et à jour pour faciliter la maintenance et
-                            l'intégration.</p>
-                    </div>
-                    <div class="practice-card">
-                        <h3>Veille Technologique</h3>
-                        <p>Suivi régulier des nouvelles technologies et des meilleures pratiques du développement
-                            web.</p>
-                    </div>
+                    <?php
+                    foreach ($dataSkills as $skill){
+                        if ($skill->getSkill() === 'Hard') {
+                            require dirname(__DIR__) . '/Templates/Partials/cardSkillHard.php';
+                        }
+                    } ?>
                 </div>
             </article>
             <article>
-                <h2> Transversal skills</h2>
+                <h2>Transversal skills</h2>
                 <div class="skills-container">
-                    <div class="skill-card">
-                        <div class="skill-icon">🌍</div>
-                        <h3 class="skill-title">Multilinguisme</h3>
-                        <p class="skill-description">Capacité à communiquer en plusieurs langues et à travailler dans un
-                            environnement international.</p>
-                        <p class="examples">Exemple: Documentation multilingue, collaboration avec des équipes
-                            internationales.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">🎯</div>
-                        <h3 class="skill-title">Gestion de projet</h3>
-                        <p class="skill-description">Compréhension des méthodologies de gestion de projet et capacité à
-                            les appliquer efficacement.</p>
-                        <p class="examples">Exemple: Planification des sprints, estimation des tâches, suivi des
-                            deadlines.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">🤝</div>
-                        <h3 class="skill-title">Travail d'équipe</h3>
-                        <p class="skill-description">Capacité à collaborer efficacement au sein d'une équipe
-                            pluridisciplinaire.</p>
-                        <p class="examples">Exemple: Participation aux daily meetings, pair programming, partage de
-                            connaissances.</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">💡</div>
-                        <h3 class="skill-title">Résolution de problèmes</h3>
-                        <p class="skill-description">Approche méthodique pour identifier et résoudre les problèmes
-                            techniques complexes.</p>
-                        <p class="examples">Exemple: Debugging avancé, optimisation des performances, refactoring.</p>
-                    </div>
+                    <?php
+                    foreach ($dataSkills as $skill) {
+                        if ($skill->getSkill() === 'Transversal') {
+                            require dirname(__DIR__) . '/Templates/Partials/cardSkill.php';
+                        }
+                    }
+                    ?>
                 </div>
             </article>
         </main>
