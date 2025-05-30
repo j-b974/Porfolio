@@ -13,19 +13,21 @@ class SenderMail
 
         $mail = new PHPMailer(true);
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        //Enable verbose debug output SMTP::DEBUG_OFF
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = 'mail.bertil.re';                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'dueliste_reunion@msn.com';                     //SMTP username
-        $mail->Password   = 'sdzy mbnm vihx pasy';                               //SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        $mail->Host       = $_ENV['SMTP_HOST'];                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                //Enable SMTP authentication
+        $mail->Username   = $_ENV['SMTP_USER'];                     //SMTP username
+        $mail->Password   = $_ENV['SMTP_PASSWORD'];                               //SMTP password
+        $mail->SMTPSecure = 'ssl';
+        //Enable implicit TLS encryption
+        $mail->Port       = $_ENV['SMTP_PORT'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('zooj384@gmail.com', 'joseZoo');
+        $mail->setFrom('contact@bertil.re', 'contact');
         $mail->addAddress($email , '');     //Add a recipient
-        $mail->addReplyTo('zooj384@gmail.com', 'joseZoo');
+        $mail->addReplyTo('contact@bertil.re', 'contact');
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
@@ -36,6 +38,10 @@ class SenderMail
         //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
         $this->mailer = $mail;
 
+    }
+    public function envoyer():bool
+    {
+        return  $this->mailer->send();
     }
 
 }

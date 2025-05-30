@@ -1,12 +1,15 @@
 <?php
     require_once dirname(__DIR__, 1).DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
+    $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__,1));
+    $dotenv->load();
+
     $headers = getallheaders();
     if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XMLHttpRequest') {
 
         // Récupérer les données JSON brutes
         $postData = json_decode(file_get_contents('php://input'), true);
-
+        $sendMail = false;
         if(!empty($postData)){
             $email = htmlspecialchars($postData['email']);
             $name = htmlspecialchars($postData['name']);
@@ -14,10 +17,11 @@
             $message = htmlspecialchars($postData['message']);
 
             $mailler = new \Berti\Porfolio\Controller\SenderMail($email , $subject , $message);
-
-
+            //$mailler = new \Berti\Porfolio\Controller\SenderGMail($email , $subject , $message);
+            $sendMail = $mailler->envoyer();
+            dd($sendMail);
         }
-        $reponse = ['reponse'=> " {$postData['name']} : email evoyez !!!" ];
+        $reponse = ['reponse'=> " {$postData['name']} : $sendMail !!!" ];
 
         header('Content-Type: application/json');
         echo json_encode($reponse);
