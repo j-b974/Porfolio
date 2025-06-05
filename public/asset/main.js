@@ -44,7 +44,7 @@ form.addEventListener("submit", function(event) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 let reponse = JSON.parse(xhr.responseText);
-                console.log(reponse);
+                showMessage(reponse);
             } else {
                 alert("Une erreur est survenue lors de l'envoi du message.");
             }
@@ -58,3 +58,22 @@ form.addEventListener("submit", function(event) {
     form.reset();
     modal.style.display = "none";
 });
+// affiche le message
+function showMessage(message){
+    divMessage = document.querySelector("#alertMessage");
+
+
+    if(message.Success){
+        console.log(message.Success);
+        divMessage.innerHTML = `<strong>Succée :</strong> ${message.Success}`
+        divMessage.parentElement.classList.remove('alert-danger');
+        divMessage.parentElement.classList.add('alert-success');
+    }else{
+        console.log(message.error);
+        divMessage.innerHTML = `<strong>Error :</strong> ${message.error}`
+        divMessage.parentElement.classList.add('alert-danger');
+        divMessage.parentElement.classList.remove('alert-success');
+    }
+    divMessage.parentElement.style.display = "block";
+
+}

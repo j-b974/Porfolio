@@ -10,18 +10,34 @@
         // Récupérer les données JSON brutes
         $postData = json_decode(file_get_contents('php://input'), true);
         $sendMail = false;
+        $reponse = [];
         if(!empty($postData)){
             $email = htmlspecialchars($postData['email']);
             $name = htmlspecialchars($postData['name']);
             $subject = htmlspecialchars($postData['subject']);
             $message = htmlspecialchars($postData['message']);
 
-            $mailler = new \Berti\Porfolio\Controller\SenderMail($email , $subject , $message);
-            //$mailler = new \Berti\Porfolio\Controller\SenderGMail($email , $subject , $message);
-            $sendMail = $mailler->envoyer();
-            dd($sendMail);
+            try{
+                $mailler = new \Berti\Porfolio\Controller\SenderMail();
+
+                $mailler->setEmail($email , $subject , $message , $name);
+
+                $sendMail = $mailler->envoyer();
+
+            }catch(Exception $e){
+                // TODO LOGGER  !!
+            }
+
+
+            if($sendMail){
+                $noReply = new \Berti\Porfolio\Controller\SenderMail();
+                $noReply->setNoReply($email , $name , $subject);
+                $noReply->envoyer();
+                $reponse['Success']=" {$postData['name']} , Votre email à bien était envoyer !!!";
+            }else{
+                $reponse['error']='Quelquechose c\'est mal passé !!!';
+            }
         }
-        $reponse = ['reponse'=> " {$postData['name']} : $sendMail !!!" ];
 
         header('Content-Type: application/json');
         echo json_encode($reponse);
@@ -139,5 +155,10 @@
                 <button type="submit" class="submit-btn">Envoyer</button>
             </form>
         </div>
+    </div>
+    <!-- Alerte infos -->
+    <div class="alert alert-dismissible">
+        <div id="alertMessage"></div>
+        <button type="button" class="btn-close" onclick="this.parentElement.style.display='none'" aria-label="Fermer"></button>
     </div>
 </body>
