@@ -1,4 +1,6 @@
-<div class="practice-card">
-    <h3><?= $skill->getNom()?></h3>
-    <p><?= $skill->getDescription()?></p>
+<div class="skill-card">
+    <h3 class="skill-title"><?= $skill->getNom()?></h3>
+    <p class="skill-description">
+        <?= $skill->getDescription()?>
+    </p>
 </div>

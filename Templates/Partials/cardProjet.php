@@ -1,28 +1,31 @@
-<div class="cardProjet">
-    <div class="box-image">
-        <img src="./asset/images/bg_portfolio.jpg" alt="projet1">
+<article class="project-card">
+    <div class="project-image">
+        <img src="./asset/images/bg_portfolio.jpg" alt="Projet E-commerce">
     </div>
-    <div class="cardBody">
-        <div>
-            <h3><?= $card->getTitre() ?></h3>
-            <p><?= $card->getDescription() ?></p>
-        </div>
-        <h5 class="sous-titre"> Stack technique </h5>
-        <ul class="box-techno">
-            <?php foreach ($card->getTechno() as $techno) : ?>
-                <li>
-                    <img src="./asset/images/technologie/<?= $techno->getImage() ?>" alt="<?= $techno->getNom() ?>">
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        <h5 class="sous-titre"> Voir le projet </h5>
-        <div class="box-link">
-            <div class="link">
-                <a href="<?= $card->getLienWeb() ?>" class="card-link" target="_blank"><img src="./asset/images/bg_portfolio.jpg" alt="logo site web"></a>
-            </div>
-            <div class="link">
-                <a href="<?= $card->getLienGit() ?>" class="card-link" target="_blank"><img src="./asset/images/bg_portfolio.jpg" alt="logo github"></a>
-            </div>
+    <div class="project-content">
+        <h3 class="project-title"><?= $card->getTitre() ?></h3>
+        <p class="project-description">
+            <?= $card->getDescription() ?>
+        </p>
+        <div class="tech-stack">
+            <span class="tech-label">Stack Technique</span>
+            <ul class="tech-list">
+                <?php foreach ($card->getTechno() as $techno) : ?>
+                    <li class="tech-item">
+                        <img src="./asset/images/technologie/69x69/<?= $techno->getImage() ?>" alt="<?= $techno->getNom() ?>">
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
-</div>
+
+    <div class="project-links">
+        <a href="<?= $card->getLienWeb() ?>" class="project-link" target="_blank"><ion-icon name="earth-outline"></ion-icon>   Demo</a>
+        <a href="<?= $card->getLienGit() ?>" class="project-link" target="_blank">
+            <div class="project_links_contain">
+                <div class="projetct_links_img"><img src="./asset/images/technologie/69x69/github_25X25.png" height="25"></div>
+                <div>Code Source</div>
+            </div></a>
+    </div>
+
+</article>
