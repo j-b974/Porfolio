@@ -15,6 +15,18 @@ class CardProjet
     private array $techno = [];
     private string $lienGit;
     private string $lienWeb;
+    private string $nomDepotGit;
+
+    public function getNomDepotGit(): string
+    {
+        return $this->nomDepotGit;
+    }
+
+    public function setNomDepotGit(string $nomDepotGit): CardProjet
+    {
+        $this->nomDepotGit = $nomDepotGit;
+        return $this;
+    }
 
     public function getId(): int
     {

@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS cardProjet(
     titre varchar(50) not null,
     description varchar(255) not null,
     lien_git varchar(50) default NULL,
-    lien_web varchar(50) default NULL
+    lien_web varchar(50) default NULL,
+    nom_depot_git varchar(50)default NULL
 );
 CREATE TABLE IF NOT EXISTS techno(
     id INTEGER PRIMARY KEY AUTOINCREMENT,

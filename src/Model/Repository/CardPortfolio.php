@@ -45,7 +45,7 @@ class CardPortfolio
     public function getAllCard(): array
     {
         // Récupère toutes les cartes avec les technos liées regroupées par carte
-        $sql = "SELECT id , titre , description , lien_git as lienGit , lien_web as lienWeb FROM cardProjet";
+        $sql = "SELECT id , titre , description , lien_git as lienGit , lien_web as lienWeb , nom_depot_git as nomDepotGit FROM cardProjet";
         $req = $this->pdo->query($sql);
         $req->setFetchMode(PDO::FETCH_CLASS , CardProjet::class);
         $lstCard = $req->fetchAll();
