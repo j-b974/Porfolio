@@ -28,7 +28,6 @@ if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XML
             // TODO LOGGER  !!
         }
 
-
         if($sendMail){
             $noReply = new \Berti\Porfolio\Controller\SenderMail();
             $noReply->setNoReply($email , $name , $subject);
@@ -79,10 +78,7 @@ $dataSkills = $TSkills->getSkills();
             <div class="hero">
                 <h1>Développeur Web & Mobile</h1>
                 <p class="hero-description">
-                    Passionné par la création d'expériences numériques exceptionnelles,
-                    je développe des solutions web et mobile modernes, performantes et
-                    centrées sur l'utilisateur. Mon expertise couvre le développement
-                    frontend et backend avec les dernières technologies.
+                    Ce portfolio regroupe mes projets réalisés en tant que développeur web, illustrant mes compétences, mes hard skills, ainsi que mes soft skills. J’ai également développé des compétences transversales essentielles pour évoluer dans des contextes variés du développement web.
                 </p>
             </div>
         </div>
@@ -97,31 +93,6 @@ $dataSkills = $TSkills->getSkills();
                 <?php foreach ($dataCard as $card) : ?>
                     <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardProjet.php' ?>
                 <?php endforeach; ?>
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Projet Dashboard">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Dashboard Analytics</h3>
-                        <p class="project-description">
-                            Tableau de bord analytique en temps réel avec visualisations interactives,
-                            rapports personnalisés et gestion des utilisateurs.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-label">Stack Technique</span>
-                            <ul class="tech-list">
-                                <li class="tech-item">📊</li>
-                                <li class="tech-item">⚛️</li>
-                                <li class="tech-item">🔥</li>
-                                <li class="tech-item">📈</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">🌐 Demo</a>
-                            <a href="#" class="project-link">📂 Code</a>
-                        </div>
-                    </div>
-                </article>
             </div>
         </section>
 
@@ -133,24 +104,11 @@ $dataSkills = $TSkills->getSkills();
                         <?php require dirname(__DIR__,1).DIRECTORY_SEPARATOR.'Templates'.DIRECTORY_SEPARATOR.'Partials'.DIRECTORY_SEPARATOR.'cardSkill.php' ?>
                     <?php endif; ?>
                 <?php endforeach; ?>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h3 class="skill-title">Gestion de projet</h3>
-                    <p class="skill-description">
-                        Organisation méthodique des tâches, respect des délais et coordination efficace
-                        des ressources pour mener les projets à terme avec succès.
-                    </p>
-                    <div class="skill-example">
-                        <strong>Exemple :</strong> Pilotage d'un projet de refonte complète avec une équipe
-                        de 5 développeurs, livré dans les temps et sous budget.
-                    </div>
-                </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">Hard Skills</h2>
+            <h2 class="section-title">compétences techniques</h2>
             <div class="skills-grid">
                 <?php
                     foreach ($dataSkills as $skill){
@@ -159,14 +117,6 @@ $dataSkills = $TSkills->getSkills();
                         }
                     }
                 ?>
-                <div class="skill-card">
-                    <div class="skill-icon">📱</div>
-                    <h3 class="skill-title">Développement Mobile</h3>
-                    <p class="skill-description">
-                        Développement d'applications mobiles natives et hybrides avec React Native,
-                        Flutter, et intégration avec les APIs natives des plateformes.
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -180,18 +130,6 @@ $dataSkills = $TSkills->getSkills();
                         }
                     }
                 ?>
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3 class="skill-title">DevOps</h3>
-                    <p class="skill-description">
-                        Maîtrise des outils DevOps : Docker, Kubernetes, AWS, monitoring et
-                        observabilité des applications en production.
-                    </p>
-                    <div class="skill-example">
-                        <strong>Exemple :</strong> Containerisation d'une application legacy
-                        et déploiement sur AWS avec 99.9% d'uptime.
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -244,6 +182,8 @@ $dataSkills = $TSkills->getSkills();
     <button class="alert-close" onclick="this.parentElement.style.display='none'">&times;</button>
     <span id="alertMessage"></span>
 </div>
+
+<!-- icon ionic.io -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
