@@ -8,7 +8,9 @@
             <?= $card->getDescription() ?>
         </p>
         <div class="tech-stack">
-            <span class="tech-label">Stack Technique</span>
+            <div class="tech-contain-label">
+                <span class="tech-label">Stack Technique</span>
+            </div>
             <ul class="tech-list">
                 <?php foreach ($card->getTechno() as $techno) : ?>
                     <li class="tech-item">

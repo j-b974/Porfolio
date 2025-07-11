@@ -243,12 +243,18 @@ main {
 .tech-stack {
     margin-bottom: 1.5rem;
 }
+.tech-contain-label{
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    width: 49%;
+    background-image: linear-gradient(to top, #f7f8fc 0%, #e8ecf3 25%, #ffffff 50%, #d0d7e3 75%, #f0f2f8 100%);
+}
 
 .tech-label {
     font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
     display: block;
 }
 
