@@ -23,7 +23,7 @@
 
     <div class="project-links">
         <a href="<?= $card->getLienWeb() ?>" class="project-link" target="_blank"><ion-icon name="earth-outline"></ion-icon>   Demo</a>
-        <a href="<?= $card->getLienGit() ?>" class="project-link" target="_blank">
+        <a href="<?= $card->getLienGit() ?>" class="project-link" target="_blank" aria-label="lien depot git">
             <div class="project_links_contain">
                 <div class="projetct_links_img">
                     <?php if($card->getNomDepotGit() === "GitHub") : ?>
@@ -43,7 +43,8 @@
                     <?php endif ; ?>
                 </div>
                 <div>Code Source</div>
-            </div></a>
+            </div>
+        </a>
     </div>
 
 </article>

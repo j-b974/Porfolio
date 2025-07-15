@@ -308,7 +308,7 @@ main {
     justify-content: center;
 }
 
-.project-link:hover {
+.project-link:hover , .project-link:focus {
     color: var(--text-primary);
     border-color: var(--primary-color);
 }
@@ -333,7 +333,7 @@ main {
     filter: grayscale(100%);
     transition: var(--transition);
 }
-.project-link:hover .gitlab-icon {
+.project-link:hover .gitlab-icon , .project-link:focus .gitlab-icon{
     opacity: 1;
     filter: grayscale(0);
 }
