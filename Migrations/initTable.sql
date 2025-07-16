@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS cardProjet(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_post varchar(50) null,
     titre varchar(50) not null,
     description varchar(255) not null,
     lien_git varchar(50) default NULL,

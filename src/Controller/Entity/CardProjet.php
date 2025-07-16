@@ -16,6 +16,21 @@ class CardProjet
     private string $lienGit;
     private string $lienWeb;
     private string $nomDepotGit;
+    private string $imagePost;
+
+    public function getImagePost(): string
+    {
+        if($this->imagePost == '') $this->imagePost = "bg_portfolio.jpg";
+
+        return $this->imagePost;
+    }
+
+    public function setImagePost(string $imagePost): CardProjet
+    {
+        $this->imagePost = $imagePost;
+        return $this;
+    }
+
 
     public function getNomDepotGit(): string
     {

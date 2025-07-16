@@ -1,6 +1,6 @@
 <article class="project-card">
     <div class="project-image">
-        <img src="./asset/images/bg_portfolio.jpg" alt="Projet E-commerce">
+        <img src="./asset/images/<?= $card->getImagePost() ?>" alt="Projet_<?= $card->getTitre() ?>">
     </div>
     <div class="project-content">
         <h3 class="project-title"><?= $card->getTitre() ?></h3>
