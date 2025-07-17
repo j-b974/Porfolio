@@ -78,7 +78,7 @@ $dataSkills = $TSkills->getSkills();
             <div class="hero">
                 <h1>Développeur Web & Mobile</h1>
                 <p class="hero-description">
-                    Ce portfolio regroupe mes projets réalisés en tant que développeur web, illustrant mes compétences, mes hard skills, ainsi que mes soft skills. J’ai également développé des compétences transversales essentielles pour évoluer dans des contextes variés du développement web.
+                    Ce portfolio regroupe mes projets réalisés en tant que développeur web, illustrant mes compétences techniques, ainsi que mes compétences relationnelles. J’ai également développé des compétences transversales essentielles pour évoluer dans des contextes variés du développement web.
                 </p>
             </div>
         </div>
@@ -97,7 +97,7 @@ $dataSkills = $TSkills->getSkills();
         </section>
 
         <section class="section">
-            <h2 class="section-title">Soft Skills</h2>
+            <h2 class="section-title">Savoir-Être Professionnel</h2>
             <div class="skills-grid">
                 <?php foreach ($dataSkills as $skill) : ?>
                     <?php if($skill->getSkill() === 'Soft'): ?>
@@ -108,7 +108,7 @@ $dataSkills = $TSkills->getSkills();
         </section>
 
         <section class="section">
-            <h2 class="section-title">compétences techniques</h2>
+            <h2 class="section-title">Compétences Techniques</h2>
             <div class="skills-grid">
                 <?php
                     foreach ($dataSkills as $skill){
