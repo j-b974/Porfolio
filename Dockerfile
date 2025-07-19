@@ -32,11 +32,11 @@ RUN chown -R www-data:www-data /var/www/
 
 # Installation des dépendances avec Composer
 RUN cd /var/www/ && \
-composer update --no-interaction --no-ansi && composer install --no-interaction --no-ansi
+    composer update --no-interaction --no-ansi && composer install --no-interaction --no-ansi
 
 # Fixe les permissions pour Apache
 RUN chown -R www-data:www-data /var/www/ \
-    && chmod -R 755 /var/www/ \
+    && chmod -R 755 /var/www/
 
 # change emplacement curseur commande
 WORKDIR /var/www/
