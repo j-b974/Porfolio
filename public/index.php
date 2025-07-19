@@ -25,7 +25,11 @@ if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XML
             $sendMail = $mailler->envoyer();
 
         }catch(Exception $e){
-            // TODO LOGGER  !!
+            // Message d'erreur
+            $message = date('Y-m-d H:i:s') . ' - Erreur : ' . $e->getMessage() . PHP_EOL;
+
+            // Écriture dans un fichier (log.txt ici)
+            file_put_contents('logMailler.txt', $message, FILE_APPEND);
         }
 
         if($sendMail){

@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - testWorkflows
+      - main
 
 env:
   VPS_USER: ${{ secrets.VPS_USER }}
