@@ -45,6 +45,6 @@ jobs:
               SMTP_PORT=${{ secrets.SMTP_PORT }}
               SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
             EOF
-            chmod 600 .env
+            chmod 644 .env
             docker-compose down
             docker-compose up -d --build
