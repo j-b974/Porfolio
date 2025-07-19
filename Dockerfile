@@ -29,17 +29,17 @@ COPY . /var/www/
 
 # Configuration du propriétaire des fichiers
 RUN chown -R www-data:www-data /var/www/
-# Installation des dépendances avec Composer
 
+# Installation des dépendances avec Composer
 RUN cd /var/www/ && \
 composer update --no-interaction --no-ansi && composer install --no-interaction --no-ansi
 
-# change emplacement curseur commande
-WORKDIR /var/www/
-
 # Fixe les permissions pour Apache
 RUN chown -R www-data:www-data /var/www/ \
-    && chmod -R 755 /var/www/
+    && chmod -R 755 /var/www/ \
+
+# change emplacement curseur commande
+WORKDIR /var/www/
 
 #Exposition du port 80
 EXPOSE 80
