@@ -29,7 +29,7 @@ if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XML
             $message = date('Y-m-d H:i:s') . ' - Erreur : ' . $e->getMessage() . PHP_EOL;
 
             // Écriture dans un fichier (log.txt ici)
-            file_put_contents('logMailler.txt', $message, FILE_APPEND);
+            file_put_contents('../logMailler.txt', $message, FILE_APPEND);
         }
 
         if($sendMail){
