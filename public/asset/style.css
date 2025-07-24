@@ -165,6 +165,9 @@ main {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(95deg, #3949BE 50%, #0013A7 50%);
+    background-clip: text;
     color: var(--text-primary);
     position: relative;
 }
