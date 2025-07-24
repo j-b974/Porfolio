@@ -452,8 +452,8 @@ footer {
 
 .modal-content {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
     background: var(--card-bg);
     border-radius: var(--radius-xl);
@@ -461,6 +461,14 @@ footer {
     width: 90%;
     max-width: 500px;
     box-shadow: var(--shadow-xl);
+    max-height: 93vh;
+    overflow-y: auto;
+}
+.captch-content {
+    margin-bottom: 1.2rem;
+}
+.rgpd-content {
+    margin-bottom: 1.2rem;
 }
 
 .modal-header {
@@ -536,8 +544,13 @@ textarea.form-input {
     cursor: pointer;
     transition: var(--transition);
 }
+.btn-submit:disabled {
+    background: rgb(112 105 105 / 30%);
+    color: rgba(16, 16, 16, 0.3);
+    border-color: rgba(11, 61, 194, 0.69);
+}
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled):hover {
     background: linear-gradient(135deg, var(--primary-dark) 0%, #1e40af 100%);
 }
 

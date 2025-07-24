@@ -3,6 +3,28 @@ const modal = document.getElementById("formModal");
 const btn = document.getElementById("openModal");
 const span = document.querySelector(".close");
 const form = document.getElementById("contactForm");
+const checkboxRgpd = document.getElementById("rgpd");
+const btnSbumit = document.querySelector("button[type=submit]");
+
+// construction Objet jeton recaptcha
+const JetonRecaptcha = {
+    jeton: "",
+    delay: true,
+    valide: false
+};
+const proxyJeton = new Proxy(JetonRecaptcha, {
+    set(target , prop , value , receiver ) {
+
+        if(prop === 'valide')
+        {
+            //changeActiviteBtn()
+        }
+        return Reflect.set(...arguments);
+    }
+});
+
+
+
 
 // Ouvrir la modale quand on clique sur le bouton
 btn.onclick = function() {
@@ -30,9 +52,9 @@ form.addEventListener("submit", function(event) {
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const message = document.getElementById("message").value;
-
+    const jetonRecaptcha = proxyJeton.jeton;
     // Préparer les données pour l'envoi
-    const formData = JSON.stringify({name, email, subject, message});
+    const formData = JSON.stringify({name, email, subject, message, jetonRecaptcha });
 
     // Créer une requête XHR
     const xhr = new XMLHttpRequest();
@@ -77,4 +99,32 @@ function showMessage(message){
     }
     divMessage.parentElement.style.display = "block";
 
+}
+
+// gestion checkbox rgpd
+checkboxRgpd.addEventListener('change', function(){
+    changeActiviteBtn();
+});
+function jetonRecaptcha(jeton)
+{
+    console.log(jeton);
+    proxyJeton.jeton = jeton;
+    proxyJeton.valide = true;
+    changeActiviteBtn();
+}
+function JetonExpiredRecaptcha()
+{
+    proxyJeton.valide = false;
+    changeActiviteBtn();
+
+}
+// gestion btnSubmit
+function changeActiviteBtn()
+{
+    if(checkboxRgpd.checked && proxyJeton.valide)
+    {
+        btnSbumit.disabled = false;
+    }else{
+        btnSbumit.disabled = true;
+    }
 }

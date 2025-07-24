@@ -44,6 +44,7 @@ jobs:
               SMTP_USER=${{ secrets.SMTP_USER }}
               SMTP_PORT=${{ secrets.SMTP_PORT }}
               SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+              KEY_SECRET_RECAPTCHA=${{ secrets.KEY_SECRET_RECAPTCHA }}
             EOF
             chmod 644 .env
             docker-compose down

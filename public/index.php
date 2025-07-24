@@ -16,13 +16,23 @@ if (isset($headers['X-Requested-With']) && $headers['X-Requested-With'] === 'XML
         $name = htmlspecialchars($postData['name']);
         $subject = htmlspecialchars($postData['subject']);
         $message = htmlspecialchars($postData['message']);
+        $jetonRecaptcha = htmlspecialchars($postData['jetonRecaptcha']);
 
         try{
-            $mailler = new \Berti\Porfolio\Controller\SenderMail();
 
-            $mailler->setEmail($email , $subject , $message , $name);
+            $jetonVerifer = \Berti\Porfolio\Services\RecaptchaVerifier::verify($jetonRecaptcha);
 
-            $sendMail = $mailler->envoyer();
+            if($jetonVerifer['success'])
+            {
+                $mailler = new \Berti\Porfolio\Controller\SenderMail();
+
+                $mailler->setEmail($email , $subject , $message , $name);
+
+                $sendMail = $mailler->envoyer();
+            }else{
+                throw new Exception("invalique jeton Recaptcha...");
+            }
+
 
         }catch(Exception $e){
             // Message d'erreur
@@ -66,6 +76,7 @@ $dataSkills = $TSkills->getSkills();
     <meta name="googlebot" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="asset/style.css" type="text/css" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript" src="./asset/main.js" defer ></script>
 </head>
 <body>
@@ -175,8 +186,15 @@ $dataSkills = $TSkills->getSkills();
                 <textarea id="message" name="message" class="form-input" rows="5" required placeholder="Votre message..."></textarea>
                 <div class="error-message" id="messageError">Veuillez entrer votre message</div>
             </div>
+            <div class="captch-content">
+                <div class="g-recaptcha" data-sitekey="6LcfMYorAAAAABphJI-xLZu0CrEkZ0WJeGVQrwl2" data-callback="jetonRecaptcha"  data-expired-callback="JetonExpiredRecaptcha"></div>
+            </div>
+            <div class="rgpd-content">
+                <input type="checkbox" id="rgpd" required>
+                <label for="rgpd"> En cochant cette case et en soumettant ce formulaire, j'accepte que mes données personnelles soient uniquement utilisées pour me recontacter dans le cadre de cette demande</label>
+            </div>
 
-            <button type="submit" class="btn-submit">Envoyer le message</button>
+            <button type="submit" class="btn-submit" disabled >Envoyer le message</button>
         </form>
     </div>
 </div>
