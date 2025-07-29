@@ -11,14 +11,14 @@ services:
       - .env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`bertil.re`)"
+      - "traefik.http.routers.portfolio.rule=Host(`bertil.re`) || Host(`www.bertil.re`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls=true"
       - "traefik.http.routers.portfolio.tls.certresolver=cloudflare"
       # Indique à Traefik le port interne sur lequel le service écoute (ici 80)
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"
       # Redirection HTTP vers HTTPS
-      - "traefik.http.routers.portfolio-http.rule=Host(`bertil.re`)"
+      - "traefik.http.routers.portfolio-http.rule=Host(`bertil.re`) || Host(`www.bertil.re`)"
       - "traefik.http.routers.portfolio-http.entrypoints=web"
       - "traefik.http.routers.portfolio-http.middlewares=portfolio-https-redirect"
       - "traefik.http.middlewares.portfolio-https-redirect.redirectscheme.scheme=https"
