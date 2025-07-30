@@ -13,6 +13,8 @@ const JetonRecaptcha = {
     valide: false
 };
 const proxyJeton = new Proxy(JetonRecaptcha, {
+
+    // quant une valeur est modifie
     set(target , prop , value , receiver ) {
 
         if(prop === 'valide')
@@ -80,6 +82,7 @@ form.addEventListener("submit", function(event) {
     form.reset();
     modal.style.display = "none";
 });
+
 // affiche le message
 function showMessage(message){
     divMessage = document.querySelector("#alertMessage");
@@ -118,7 +121,8 @@ function JetonExpiredRecaptcha()
     changeActiviteBtn();
 
 }
-// gestion btnSubmit
+
+// gestion btnSubmit contact
 function changeActiviteBtn()
 {
     if(checkboxRgpd.checked && proxyJeton.valide)
@@ -127,4 +131,28 @@ function changeActiviteBtn()
     }else{
         btnSbumit.disabled = true;
     }
+}
+
+// gestion scroll top
+function goScrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.addEventListener('scroll', updateScrollProgress);
+window.addEventListener('load', updateScrollProgress);
+
+function updateScrollProgress() {
+    const svg = document.getElementById('scrollProgressSvg');
+    const circle = svg.querySelector('circle');
+
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollRatio = scrollHeight === 0 ? 0 : scrollTop / scrollHeight;
+
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference * (1 - scrollRatio);
+
+    circle.style.strokeDasharray = `${circumference}`;
+    circle.style.strokeDashoffset = `${offset}`;
 }

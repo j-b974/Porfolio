@@ -594,6 +594,44 @@ textarea.form-input {
     font-size: 25px;
     padding: .5rem;
 }
+/* scroll top */
+.container-scroll {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1.75rem;
+    width: 47px;
+    height: 47px;
+}
+.container-circle {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 47px;
+    height: 47px;
+}
+.container-scroll > button {
+    position: relative;
+    height: 47px;
+    width: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:0.3;
+    padding: 0.5rem;
+    background-color: rgba(226,232,240,1);
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 20;
+}
+.container-scroll > button:hover {
+    opacity: 0.6;
+}
+
+.svg-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+}
 
 
 /* Animations */
