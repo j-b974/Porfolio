@@ -199,7 +199,7 @@ $dataSkills = $TSkills->getSkills();
     </div>
 </div>
 <!-- scroll top  -->
-<div class="container-scroll">
+<div class="container-scroll est-cacher">
     <svg id="scrollProgressSvg" width="60" height="60" viewBox="0 0 60 60" class="container-circle" style="opacity: 1; transition: opacity 0.3s ease; pointer-events: none;">
         <circle cx="30" cy="30" r="26" stroke="#1e40af" stroke-width="4" fill="none" stroke-linecap="round" style="stroke-dasharray: 163.363;
     stroke-dashoffset: 163.363"></circle>

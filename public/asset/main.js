@@ -144,10 +144,19 @@ window.addEventListener('load', updateScrollProgress);
 function updateScrollProgress() {
     const svg = document.getElementById('scrollProgressSvg');
     const circle = svg.querySelector('circle');
+    const divContainer = svg.parentElement;
 
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollRatio = scrollHeight === 0 ? 0 : scrollTop / scrollHeight;
+
+    if(scrollTop > 800){
+        divContainer.classList.remove('est-cacher');
+        divContainer.classList.add('est-visible');
+    }else{
+        divContainer.classList.remove('est-visible');
+        divContainer.classList.add('est-cacher');
+    }
 
     const radius = circle.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
