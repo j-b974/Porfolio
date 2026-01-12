@@ -18,3 +18,4 @@ foreach ($data['cardProjet'] as $row) {
 foreach ($data['skills'] as $row) {
     $TSkills->addSkills($row);
 }
+echo "Remplissage réussie !!!/n";

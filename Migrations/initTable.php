@@ -11,8 +11,8 @@ $sqlContent = file_get_contents($sqlFilePath);
 $result = $pdo->exec($sqlContent);
 
 if ($result === false) {
-    echo "Erreur d'exécution : " . print_r($pdo->errorInfo(), true);
+    echo "Erreur d'exécution : /n" . print_r($pdo->errorInfo(), true);
 } else {
-    echo "Exécution réussie !!!";
+    echo "Exécution réussie !!!/n";
 }
 $pdo = null;
