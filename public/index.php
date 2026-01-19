@@ -70,8 +70,8 @@ $dataSkills = $TSkills->getSkills();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bertil Portfolio - Développeur Web & Web Mobile</title>
-    <meta name="description" content="Portfolio de Bertil - Développeur Web & Mobile passionné">
-    <meta name="keywords" content="Bertil, Portfolio, Développeur Web, Web Mobile, Frontend, Backend">
+    <meta name="description" content="Portfolio de Bertil - Développeur Web & Mobile passionné de la réunion">
+    <meta name="keywords" content="Bertil, Portfolio, Développeur Web, Web Mobile, Frontend, Backend, la réunion">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
