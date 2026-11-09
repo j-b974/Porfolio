@@ -1,15 +1,17 @@
 # Utiliser une image PHP officielle avec Apache
-FROM php:8.2-apache
+FROM php:8.5-apache
 
 # Configuration de l'environnement
 ENV APACHE_DOCUMENT_ROOT=/var/www/public
 
 # Met à jour les paquets et installe les dépendances système
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    sqlite3 \
-    libsqlite3-dev \
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+        git \
+        unzip \
+        sqlite3 \
+        libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Active les extensions PHP nécessaires (SQLite3)
