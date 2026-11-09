@@ -11,7 +11,7 @@ class Techno
     {
         $this->pdo = $pdo;
     }
-    public function addTechno(array $technos , int $idProjet = null)
+    public function addTechno(array $technos , int $idProjet = 0)
     {
         foreach($technos as $techno)
         {
